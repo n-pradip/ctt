@@ -8,3 +8,5 @@ class FileView(CreateRetrieveUpdateDestroyViewSetMixin):
     queryset = FileModel.objects.all()
     serializer_class = FileSerializer
     lookup_field = 'id'
+
+
