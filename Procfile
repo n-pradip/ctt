@@ -1,1 +1,0 @@
-web: gunicorn ctt.src.wsgi --log-file -
