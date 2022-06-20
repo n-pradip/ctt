@@ -117,12 +117,13 @@ REST_FRAMEWORK = {
 }
 
 # CELERY SETTINGS
-CELERY_BROKER_URL = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL = 'redis://127.0.0.1:6379/0'
 CELERY_ACCEPT_CONTENT = ['application/json']
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TASK_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'Asia/Kathmandu'
-
 CELERY_RESULT_BACKEND = 'django-db'
-
 CELERY_BEAT_SCHEDULER = 'django_celery_beat.schedulers:DatabaseScheduler'
+
+# REDIS
+REDIS_HOST = config('REDIS_HOST', default='127.0.0.1', cast=str)
