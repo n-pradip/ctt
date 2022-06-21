@@ -1,7 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 import os
 from celery import Celery
-from django.conf import settings
 from celery.schedules import crontab
 
 
@@ -11,7 +10,7 @@ app = Celery('src')
 app.conf.enable_utc = False
 
 app.conf.update(timezone='Asia/Kathmandu')
-app.config_from_object(settings, namespace='CELERY')
+app.config_from_object('django.conf:settings', namespace='CELERY')
 
 # celery beat settings
 app.conf.beat_schedule = {
